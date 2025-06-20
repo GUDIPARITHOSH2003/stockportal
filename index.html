@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-gray-800 border-b border-gray-700 p-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-blue-400">Stock Market Dashboard</h1>
+                <div class="flex space-x-4">
+                    <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Login</button>
+                    <button class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded">Admin</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 max-w-7xl mx-auto w-full p-6">
+            <!-- Market Overview Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h3 class="text-lg font-semibold mb-2">S&P 500</h3>
+                    <div class="text-2xl font-bold text-green-400">4,567.89</div>
+                    <div class="text-sm text-green-400">+1.23% (+12.34)</div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h3 class="text-lg font-semibold mb-2">NASDAQ</h3>
+                    <div class="text-2xl font-bold text-green-400">14,234.56</div>
+                    <div class="text-sm text-green-400">+0.87% (+23.45)</div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                    <h3 class="text-lg font-semibold mb-2">VIX</h3>
+                    <div class="text-2xl font-bold text-red-400">18.42</div>
+                    <div class="text-sm text-red-400">-2.15% (-0.40)</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Stocks Table -->
+                <div class="lg:col-span-2">
+                    <div class="bg-gray-800 rounded-lg border border-gray-700 p-6">
+                        <h2 class="text-xl font-bold mb-4">Top Stocks</h2>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-gray-700">
+                                        <th class="text-left py-2">Symbol</th>
+                                        <th class="text-left py-2">Company</th>
+                                        <th class="text-left py-2">Price</th>
+                                        <th class="text-left py-2">Change</th>
+                                        <th class="text-left py-2">Volume</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-700 hover:bg-gray-700">
+                                        <td class="py-3 font-mono font-bold">NVDA</td>
+                                        <td class="py-3">NVIDIA Corp</td>
+                                        <td class="py-3">$892.45</td>
+                                        <td class="py-3 text-green-400">+2.34%</td>
+                                        <td class="py-3">45.2M</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-700 hover:bg-gray-700">
+                                        <td class="py-3 font-mono font-bold">AAPL</td>
+                                        <td class="py-3">Apple Inc</td>
+                                        <td class="py-3">$178.23</td>
+                                        <td class="py-3 text-green-400">+1.12%</td>
+                                        <td class="py-3">52.1M</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-700 hover:bg-gray-700">
+                                        <td class="py-3 font-mono font-bold">MSFT</td>
+                                        <td class="py-3">Microsoft Corp</td>
+                                        <td class="py-3">$412.67</td>
+                                        <td class="py-3 text-red-400">-0.89%</td>
+                                        <td class="py-3">28.7M</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-700 hover:bg-gray-700">
+                                        <td class="py-3 font-mono font-bold">GOOGL</td>
+                                        <td class="py-3">Alphabet Inc</td>
+                                        <td class="py-3">$165.43</td>
+                                        <td class="py-3 text-green-400">+0.76%</td>
+                                        <td class="py-3">31.5M</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-700 hover:bg-gray-700">
+                                        <td class="py-3 font-mono font-bold">TSLA</td>
+                                        <td class="py-3">Tesla Inc</td>
+                                        <td class="py-3">$234.89</td>
+                                        <td class="py-3 text-red-400">-1.45%</td>
+                                        <td class="py-3">67.3M</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    <!-- Currency Exchange -->
+                    <div class="bg-gray-800 rounded-lg border border-gray-700 p-6">
+                        <h3 class="text-lg font-bold mb-4">Currency Exchange</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span>EUR/USD</span>
+                                <div class="text-right">
+                                    <div class="font-bold">1.0842</div>
+                                    <div class="text-sm text-green-400">+0.12%</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>GBP/USD</span>
+                                <div class="text-right">
+                                    <div class="font-bold">1.2634</div>
+                                    <div class="text-sm text-red-400">-0.08%</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>USD/JPY</span>
+                                <div class="text-right">
+                                    <div class="font-bold">149.87</div>
+                                    <div class="text-sm text-green-400">+0.23%</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>AUD/USD</span>
+                                <div class="text-right">
+                                    <div class="font-bold">0.6523</div>
+                                    <div class="text-sm text-red-400">-0.15%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Feed -->
+                    <div class="bg-gray-800 rounded-lg border border-gray-700 p-6">
+                        <h3 class="text-lg font-bold mb-4">Financial News</h3>
+                        <div class="space-y-4">
+                            <div class="border-b border-gray-700 pb-3">
+                                <h4 class="font-semibold text-sm">Fed Signals Potential Rate Cuts</h4>
+                                <p class="text-xs text-gray-400 mt-1">Federal Reserve hints at possible interest rate reductions in upcoming meetings...</p>
+                                <span class="text-xs text-blue-400">2 hours ago</span>
+                            </div>
+                            <div class="border-b border-gray-700 pb-3">
+                                <h4 class="font-semibold text-sm">Tech Stocks Rally Continues</h4>
+                                <p class="text-xs text-gray-400 mt-1">Major technology companies see continued growth as AI adoption accelerates...</p>
+                                <span class="text-xs text-blue-400">4 hours ago</span>
+                            </div>
+                            <div class="border-b border-gray-700 pb-3">
+                                <h4 class="font-semibold text-sm">Oil Prices Fluctuate</h4>
+                                <p class="text-xs text-gray-400 mt-1">Crude oil futures show volatility amid geopolitical tensions and supply concerns...</p>
+                                <span class="text-xs text-blue-400">6 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                row.addEventListener('click', function() {
+                    alert('Stock details for ' + this.cells[0].textContent);
+                });
+            });
+
+            setInterval(function() {
+                const prices = document.querySelectorAll('tbody td:nth-child(3)');
+                prices.forEach(price => {
+                    const currentPrice = parseFloat(price.textContent.replace('$', ''));
+                    const change = (Math.random() - 0.5) * 2;
+                    const newPrice = (currentPrice + change).toFixed(2);
+                    price.textContent = '$' + newPrice;
+                });
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
